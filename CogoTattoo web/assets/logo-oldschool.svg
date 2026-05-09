@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Old School Tattoo Cannabis Bud -->
+  <!-- Thick outer border -->
+  <path d="M100 30 C70 30 50 70 50 110 C50 150 100 180 100 180 C100 180 150 150 150 110 C150 70 130 30 100 30 Z" 
+        fill="#0d3b1f" stroke="#000" stroke-width="8" stroke-linejoin="round"/>
+  
+  <!-- Leaf details - Pointy and bold -->
+  <!-- Top leaf -->
+  <path d="M100 40 L80 80 L100 100 L120 80 Z" fill="#1a6b3c" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Left leaf -->
+  <path d="M70 90 L55 120 L85 130 L95 105 Z" fill="#1a6b3c" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Right leaf -->
+  <path d="M130 90 L145 120 L115 130 L105 105 Z" fill="#1a6b3c" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Bottom center leaf -->
+  <path d="M100 115 L80 150 L100 170 L120 150 Z" fill="#1a6b3c" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Golden highlights for depth -->
+  <path d="M95 50 Q100 45 105 50" fill="none" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+  <path d="M65 100 Q70 95 75 100" fill="none" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+  <path d="M125 100 Q130 95 135 100" fill="none" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Classic Tattoo Red/Orange hairs -->
+  <path d="M85 70 Q80 60 70 65" fill="none" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+  <path d="M115 70 Q120 60 130 65" fill="none" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+  <path d="M100 130 Q105 140 115 135" fill="none" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+  <path d="M85 130 Q80 140 70 135" fill="none" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Shine dots -->
+  <circle cx="85" cy="55" r="4" fill="#fff" opacity="0.5"/>
+  <circle cx="115" cy="115" r="3" fill="#fff" opacity="0.3"/>
+</svg>

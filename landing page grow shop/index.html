@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laCarpa | Grow Shop Técnico - Montevideo</title>
+    <meta name="description" content="laCarpa es tu Grow Shop premium en Montevideo. Equipamiento indoor, iluminación LED, nutrientes y semillas con el mejor asesoramiento técnico.">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="ph-fill ph-tent"></i>
+                <span>laCarpa</span>
+            </a>
+            <div class="nav-actions">
+                <button class="cart-toggle" id="cart-toggle" aria-label="Abrir carrito">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar glass" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button class="close-cart" id="close-cart" aria-label="Cerrar carrito">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items rendered via JS -->
+            <div class="empty-cart-msg">Tu carrito está vacío</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="btn-primary w-100" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </aside>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <span class="badge">Nuevo en Montevideo</span>
+                <h1 class="hero-title">El Ecosistema Perfecto para tu <span>Cultivo Indoor</span></h1>
+                <p class="hero-subtitle">Tecnología, equipamiento premium y asesoría especializada para cultivadores exigentes.</p>
+                <div class="hero-cta">
+                    <a href="#catalogo" class="btn-primary">Ver Catálogo <i class="ph ph-arrow-right"></i></a>
+                    <a href="#contacto" class="btn-secondary">Ubicación Local</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section id="catalogo" class="catalog">
+            <div class="section-header">
+                <h2>Equipamiento <span>Premium</span></h2>
+                <p>Encuentra todo lo necesario para maximizar tus resultados.</p>
+            </div>
+            
+            <div class="filters glass" id="filters">
+                <button class="filter-btn active" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter="iluminacion">Iluminación</button>
+                <button class="filter-btn" data-filter="nutrientes">Nutrientes</button>
+                <button class="filter-btn" data-filter="carpas">Carpas</button>
+                <button class="filter-btn" data-filter="semillas">Semillas</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products rendered via JS -->
+            </div>
+        </section>
+
+        <!-- Contact / Local Section -->
+        <section id="contacto" class="contact">
+            <div class="contact-container glass">
+                <div class="contact-info">
+                    <h2>Visita <span>Nuestro Local</span></h2>
+                    <p>Asesoramiento técnico presencial y todos los productos en exhibición.</p>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <i class="ph-fill ph-map-pin"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <span>Av. 18 de Julio 1234, Montevideo</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ph-fill ph-clock"></i>
+                            <div>
+                                <strong>Horario</strong>
+                                <span>Lunes a Viernes: 10:00 - 19:00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ph-fill ph-whatsapp-logo"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>+598 99 123 456</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-map">
+                    <!-- Placeholder map -->
+                    <div class="map-placeholder">
+                        <i class="ph ph-map-trifold"></i>
+                        <span>Mapa Interactivo de Montevideo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard Section (Hidden by default) -->
+        <section id="admin-section" class="admin-dashboard glass hidden">
+            <div class="admin-header">
+                <h2>Panel de <span>Administración</span></h2>
+                <button id="close-admin" class="btn-close"><i class="ph ph-x"></i></button>
+            </div>
+            
+            <div class="admin-grid">
+                <!-- Category Management -->
+                <div class="admin-box glass">
+                    <h3>Gestionar Categorías</h3>
+                    <form id="category-form" class="admin-form">
+                        <input type="text" id="new-category" placeholder="Nueva Categoría" required>
+                        <button type="submit" class="btn-primary">Agregar</button>
+                    </form>
+                    <ul id="admin-category-list" class="admin-list">
+                        <!-- Categories rendered via JS -->
+                    </ul>
+                </div>
+
+                <!-- Product Management -->
+                <div class="admin-box glass">
+                    <h3>Gestionar Productos</h3>
+                    <form id="product-form" class="admin-form">
+                        <input type="hidden" id="product-id">
+                        <input type="text" id="product-name" placeholder="Nombre del Producto" required>
+                        <select id="product-category-select" required>
+                            <!-- Options rendered via JS -->
+                        </select>
+                        <input type="number" id="product-price" placeholder="Precio ($)" required>
+                        <textarea id="product-desc" placeholder="Descripción Corta" required></textarea>
+                        <input type="url" id="product-img-url" placeholder="URL de Imagen" required>
+                        <button type="submit" id="product-submit-btn" class="btn-primary">Guardar Producto</button>
+                        <button type="button" id="cancel-edit" class="btn-secondary hidden">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="admin-box glass full-width">
+                <h3>Lista de Productos</h3>
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-product-list">
+                            <!-- Products rendered via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="ph-fill ph-tent"></i>
+                    <span>laCarpa</span>
+                </div>
+                <p>Grow Shop Técnico. Soluciones avanzadas para cultivo indoor en Uruguay.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                <a href="#" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 laCarpa Grow Shop. Todos los derechos reservados.</p>
+            <a href="#" id="admin-login-link" class="admin-link">Acceso Admin</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
