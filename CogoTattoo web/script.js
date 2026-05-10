@@ -1,3 +1,11 @@
+// ========== HERO VIDEO SPEED ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    heroVideo.playbackRate = 0.5;
+  }
+});
+
 // ========== LOADER ==========
 window.addEventListener('load', () => {
   setTimeout(() => {
@@ -171,9 +179,10 @@ document.addEventListener('keydown', (e) => {
 
 // ========== LOAD MORE PORTFOLIO ==========
 const loadMoreBtn = document.getElementById('loadMoreBtn');
+const showLessBtn = document.getElementById('showLessBtn');
 const extraItems = document.querySelectorAll('.portfolio-extra');
 
-if (loadMoreBtn) {
+if (loadMoreBtn && showLessBtn) {
   loadMoreBtn.addEventListener('click', () => {
     extraItems.forEach((item, index) => {
       // Usamos setTimeout para un efecto de escalonado
@@ -183,19 +192,39 @@ if (loadMoreBtn) {
         setTimeout(() => {
           item.classList.add('visible');
         }, 10);
-      }, index * 150);
+      }, index * 100);
     });
     
-    // Ocultar el botón después de cargar
-    loadMoreBtn.parentElement.classList.remove('visible');
-    setTimeout(() => {
-      loadMoreBtn.parentElement.style.display = 'none';
-    }, 500);
+    // Cambiar visibilidad de botones
+    loadMoreBtn.style.display = 'none';
+    showLessBtn.style.display = 'inline-block';
 
     // Actualizar el array de imágenes para el lightbox
     setTimeout(() => {
       updatePortfolioArray();
-    }, (extraItems.length * 150) + 100);
+    }, (extraItems.length * 100) + 100);
+  });
+
+  showLessBtn.addEventListener('click', () => {
+    // Scroll suave hacia arriba de la sección antes de ocultar (opcional)
+    const portfolioSection = document.getElementById('portfolio');
+    portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    extraItems.forEach((item, index) => {
+      item.classList.remove('visible');
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 800); // Tiempo que coincide con la transición CSS
+    });
+
+    // Cambiar visibilidad de botones
+    showLessBtn.style.display = 'none';
+    loadMoreBtn.style.display = 'inline-block';
+
+    // Actualizar el array de imágenes para el lightbox
+    setTimeout(() => {
+      updatePortfolioArray();
+    }, 900);
   });
 }
 
@@ -234,9 +263,30 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ========== DATE INPUT MIN ==========
+// ========== DATE & TIME VALIDATION ==========
 const dateInput = document.getElementById('date');
+const timeInput = document.getElementById('time');
+
 if (dateInput) {
   const today = new Date().toISOString().split('T')[0];
   dateInput.setAttribute('min', today);
+
+  dateInput.addEventListener('change', function() {
+    // getUTCDay evita problemas de zona horaria con el input date
+    const day = new Date(this.value).getUTCDay();
+    if (day === 0) { // 0 es Domingo
+      alert('Los domingos no realizamos sesiones. Por favor, seleccioná un día de lunes a sábado.');
+      this.value = '';
+    }
+  });
+}
+
+if (timeInput) {
+  timeInput.addEventListener('change', function() {
+    const [hour, minutes] = this.value.split(':').map(Number);
+    if (hour < 10 || hour >= 19) {
+      alert('El horario de atención es de 10:00 a 19:00. Por favor, elegí una hora válida.');
+      this.value = '';
+    }
+  });
 }
