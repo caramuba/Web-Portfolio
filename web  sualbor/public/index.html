@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sualbor Uruguay — Insumos para pintura automotriz</title>
+<meta name="description" content="Insumos profesionales para talleres de pintura automotriz en Uruguay. Masillas, esmaltes, barnices, pastas de pulir. Consulta por WhatsApp o teléfono.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Insumos para talleres de pintura automotriz — <strong>Montevideo, Uruguay</strong></span>
+  <div class="topbar-right">
+    <span>Lun–Vie 8:00–18:00 · Sáb 8:00–13:00</span>
+    <a href="tel:+59899000000">📞 099 000 000</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="logo" onclick="showAll(); return false;">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-12.5c-2.49 0-4.5 2.01-4.5 4.5S9.51 16.5 12 16.5s4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5z"/></svg>
+    </div>
+    Sualbor<span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#catalogo" class="active">Catálogo</a></li>
+    <li><a href="#marcas">Marcas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+  </ul>
+  <div class="nav-search">
+    <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1 1 5.35 5.35a7.5 7.5 0 0 1 11.3 11.3z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    <input type="text" id="nav-search-input" placeholder="Buscar producto o marca..." oninput="handleNavSearch(this.value)">
+  </div>
+  <a href="https://wa.me/59899000000?text=Hola%2C%20necesito%20consultar%20productos" class="nav-cta" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    Consultar por WhatsApp
+  </a>
+  
+  <!-- CART TRIGGER -->
+  <button class="nav-cart-btn" onclick="toggleCart(true)" title="Ver Carrito">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+    <span class="cart-badge" id="cart-badge">0</span>
+  </button>
+
+  <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
+    <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <span class="logo" style="font-family:var(--font-display);font-weight:800;font-size:24px;color:var(--white);">Sualbor</span>
+    <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </div>
+  <a href="#catalogo" onclick="toggleMobileMenu()">Catálogo</a>
+  <a href="#marcas" onclick="toggleMobileMenu()">Marcas</a>
+  <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+  <a href="#nosotros" onclick="toggleMobileMenu()">Nosotros</a>
+  <a href="https://wa.me/59899000000?text=Hola%2C%20necesito%20consultar%20productos" class="mobile-cta" target="_blank">📲 Consultar por WhatsApp</a>
+  <a href="tel:+59899000000" style="font-size:17px;color:var(--gray-300);">📞 099 000 000</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Catálogo online</div>
+      <h1>Insumos para<br><em>pintura automotriz</em></h1>
+      <p>Masillas, esmaltes, barnices, pastas de pulir y más. Encontrá el producto, chequeá presentaciones y contactanos directo.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h10" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          Ver catálogo completo
+        </a>
+        <a href="https://wa.me/59899000000?text=Hola%2C%20quiero%20consultar%20sobre%20productos" class="btn-secondary" target="_blank">
+          WhatsApp directo →
+        </a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">+80</div>
+        <div class="hero-stat-label">Productos en stock</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">12</div>
+        <div class="hero-stat-label">Marcas representadas</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Líneas de producto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="search-section">
+  <div class="search-section-inner">
+    <label for="main-search">Buscá por nombre, uso o marca:</label>
+    <div class="search-section-wrap">
+      <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1 1 5.35 5.35a7.5 7.5 0 0 1 11.3 11.3z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      <input type="text" id="main-search" class="search-big" placeholder='Ej: "masilla poliéster", "barniz 2K", "Lechler"...' oninput="handleSearch(this.value)">
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORÍAS -->
+<section class="section categories-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title">Por etapa de <span>trabajo</span></h2>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterByCategory('preparacion')" data-cat="preparacion">
+        <div class="cat-icon">🔧</div>
+        <div class="cat-name">Preparación de superficie</div>
+        <div class="cat-count">Masillas · Aparejos · Lija</div>
+      </div>
+      <div class="cat-card" onclick="filterByCategory('base')" data-cat="base">
+        <div class="cat-icon">🪣</div>
+        <div class="cat-name">Pintura base</div>
+        <div class="cat-count">Fondos · Anticorrosivos</div>
+      </div>
+      <div class="cat-card" onclick="filterByCategory('color')" data-cat="color">
+        <div class="cat-icon">🎨</div>
+        <div class="cat-name">Color</div>
+        <div class="cat-count">Esmaltes · Sistemas mezcla</div>
+      </div>
+      <div class="cat-card" onclick="filterByCategory('acabados')" data-cat="acabados">
+        <div class="cat-icon">✨</div>
+        <div class="cat-name">Acabados</div>
+        <div class="cat-count">Barnices · Endurecedores</div>
+      </div>
+      <div class="cat-card" onclick="filterByCategory('pulido')" data-cat="pulido">
+        <div class="cat-icon">💿</div>
+        <div class="cat-name">Pulido final</div>
+        <div class="cat-count">Pastas · Abrillantadoras</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO PRINCIPAL -->
+<section class="section catalog-section" id="catalogo">
+  <div class="section-inner">
+    <div class="catalog-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-title">Filtrar</div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Marca</div>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="marca" value="Lechler"> <span>Lechler</span> <span class="filter-badge">8</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="marca" value="PPG"> <span>PPG</span> <span class="filter-badge">6</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="marca" value="Standox"> <span>Standox</span> <span class="filter-badge">5</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="marca" value="Valspar"> <span>Valspar</span> <span class="filter-badge">7</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="marca" value="Glasurit"> <span>Glasurit</span> <span class="filter-badge">4</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="marca" value="Mirka"> <span>Mirka</span> <span class="filter-badge">3</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="marca" value="3M"> <span>3M</span> <span class="filter-badge">5</span></label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Presentación</div>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="presentacion" value="250ml"> <span>250 ml</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="presentacion" value="500ml"> <span>500 ml</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="presentacion" value="1L"> <span>1 L</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="presentacion" value="4L"> <span>4 L</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="presentacion" value="20L"> <span>20 L</span></label>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Stock</div>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="stock" value="disponible"> <span>Disponible</span></label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()" data-filter="stock" value="consultar"> <span>Consultar disponibilidad</span></label>
+        </div>
+
+        <button class="clear-filters" onclick="clearFilters()">Limpiar filtros</button>
+      </aside>
+
+      <!-- PRODUCTOS -->
+      <div>
+        <div class="products-toolbar">
+          <div class="results-info" id="results-info"><strong>38</strong> productos encontrados</div>
+          <select class="sort-select" onchange="sortProducts(this.value)">
+            <option value="default">Orden por defecto</option>
+            <option value="az">Nombre A–Z</option>
+            <option value="za">Nombre Z–A</option>
+            <option value="marca">Por marca</option>
+          </select>
+        </div>
+        <div class="products-grid" id="products-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCAS -->
+<section class="section brands-section" id="marcas">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title">Marcas <span>representadas</span></h2>
+    </div>
+    <div class="brands-strip">
+      <button class="brand-tag active" onclick="filterByBrand(this, '')">Todas</button>
+      <button class="brand-tag" onclick="filterByBrand(this, 'Lechler')">Lechler</button>
+      <button class="brand-tag" onclick="filterByBrand(this, 'PPG')">PPG</button>
+      <button class="brand-tag" onclick="filterByBrand(this, 'Standox')">Standox</button>
+      <button class="brand-tag" onclick="filterByBrand(this, 'Valspar')">Valspar</button>
+      <button class="brand-tag" onclick="filterByBrand(this, 'Glasurit')">Glasurit</button>
+      <button class="brand-tag" onclick="filterByBrand(this, 'Mirka')">Mirka</button>
+      <button class="brand-tag" onclick="filterByBrand(this, '3M')">3M</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section" id="contacto">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="contact-eyebrow">Contacto directo</div>
+      <div class="contact-title">¿Necesitás un producto?<br>Escribinos.</div>
+      <div class="contact-items">
+        <a href="https://wa.me/59899000000?text=Hola%2C%20quiero%20consultar%20sobre%20productos" class="contact-item" target="_blank">
+          <div class="contact-item-icon wsp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">WhatsApp</div>
+            <div class="contact-item-value">+598 99 000 000</div>
+          </div>
+        </a>
+        <a href="tel:+59899000000" class="contact-item">
+          <div class="contact-item-icon tel">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Teléfono</div>
+            <div class="contact-item-value">+598 99 000 000</div>
+          </div>
+        </a>
+        <a href="mailto:ventas@sualbor.com.uy" class="contact-item">
+          <div class="contact-item-icon mail">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">ventas@sualbor.com.uy</div>
+          </div>
+        </a>
+      </div>
+      <div class="horario-note">Lunes a viernes de 8:00 a 18:00 · Sábados de 8:00 a 13:00</div>
+    </div>
+    <div class="contact-form">
+      <div class="form-title">Mandanos tu consulta</div>
+      <div class="form-subtitle">Tres campos. Respondemos el mismo día.</div>
+      <div class="form-group">
+        <label for="f-nombre">Nombre</label>
+        <input type="text" id="f-nombre" placeholder="Tu nombre o taller">
+      </div>
+      <div class="form-group">
+        <label for="f-tel">Teléfono o WhatsApp</label>
+        <input type="tel" id="f-tel" placeholder="+598 9X XXX XXX">
+      </div>
+      <div class="form-group">
+        <label for="f-msg">¿Qué necesitás?</label>
+        <textarea id="f-msg" placeholder="Ej: masilla poliéster en presentación de 4 kg, para chapa..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Enviar consulta</button>
+      <div class="form-note">Te respondemos por teléfono o WhatsApp en el día hábil.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS (minimal) -->
+<section class="section" id="nosotros" style="background:var(--white); padding: 40px 24px;">
+  <div class="section-inner" style="max-width:700px;">
+    <h2 class="section-title" style="margin-bottom:12px;">Sobre <span>Sualbor</span></h2>
+    <p style="color:var(--gray-600,#505356); font-size:16px; line-height:1.7;">Distribuimos insumos para talleres de pintura automotriz en Uruguay desde hace más de 15 años. Trabajamos con talleres mecánicos, pintores independientes y distribuidores de todo el país. El stock está en Montevideo. Los pedidos se coordinan por teléfono o WhatsApp.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Sualbor<span></span></div>
+    <div class="footer-text">Insumos para pintura automotriz · Montevideo, Uruguay</div>
+    <div class="footer-links">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#nosotros">Nosotros</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WSP -->
+<a class="float-wsp" href="https://wa.me/59899000000?text=Hola%2C%20quiero%20consultar%20productos" target="_blank" title="Consultar por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</a>
+
+
+<!-- CART OVERLAY AND DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart(false)"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <span class="cart-title">Tu Carrito</span>
+    <button class="cart-close" onclick="toggleCart(false)">✕</button>
+  </div>
+  <div class="cart-body" id="cart-items-list">
+    <!-- Rendered dynamically by JS -->
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total de Artículos:</span>
+      <span class="cart-total-val" id="cart-total-count">0</span>
+    </div>
+    <button class="btn-checkout" onclick="checkoutWhatsApp()">
+      <svg viewBox="0 0 24 24" style="fill:currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Consultar Stock y Comprar
+    </button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-header-text">
+        <div class="modal-brand" id="modal-brand"></div>
+        <div class="modal-title" id="modal-title"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-img" id="modal-img"></div>
+      <div class="modal-info">
+        <div class="modal-section-label">Presentaciones disponibles</div>
+        <div class="presentations-list" id="modal-presentations"></div>
+        
+        <div class="modal-section-label">Comprar / Consultar</div>
+        <div class="modal-cart-actions" id="modal-cart-actions-container">
+          <!-- Dynamically generated quantity controls and add button -->
+        </div>
+
+        <div class="modal-section-label">Datos técnicos</div>
+        <div class="modal-specs" id="modal-specs"></div>
+        <div class="modal-section-label">Usos recomendados</div>
+        <div class="uses-list" id="modal-uses"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="modal-footer-note">Consultá disponibilidad y precio por WhatsApp o teléfono.</div>
+      <a id="modal-wsp-btn" href="#" class="btn-wsp-big" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Consultar por este producto
+      </a>
+      <a href="tel:+59899000000" class="btn-tel-big">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+        Llamar
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
